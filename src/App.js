@@ -28,7 +28,7 @@ function App() {
             label='Code'
             onClick={() =>
               window.open(
-                "https://github.com/GiwrgosTerezakis?tab=repositories"
+                "https://github.com/GiwrgosTerezakis/BAT"
               )
             }
             style={{ fontSize: 20, fontFamily: "Helvetica,  sans-serif" }}
