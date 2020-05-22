@@ -30,7 +30,7 @@ export default function Bouton1() {
   return (
     <StyledButton className='btn' size='small' fullWidth>
       {" "}
-      <b>LOL</b>
+      <b>alllllaaaakseeeee</b>
     </StyledButton>
   );
 }
