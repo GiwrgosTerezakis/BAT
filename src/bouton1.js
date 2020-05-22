@@ -29,8 +29,8 @@ const StyledButton = withStyles({
 export default function Bouton1() {
   return (
     <StyledButton className='btn' size='small' fullWidth>
-      {" "}
-      <b>allllsssskseeeee</b>
+      {"  "}
+      <b>Begin Tutorial</b>
     </StyledButton>
   );
 }
