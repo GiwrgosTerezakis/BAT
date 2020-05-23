@@ -15,4 +15,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    font-size: 23px !important ;
+    font-family: Jura, Cochin, Georgia, Times, 'Times New Roman', sans-serif !important ;
+    text-shadow: 1px 1px 16px red;
+}
+
+.tabb :hover {
+ color: #EF495D;
 }

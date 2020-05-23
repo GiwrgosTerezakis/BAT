@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import "./styles.css";
 import { Typography, Container } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
@@ -10,6 +10,11 @@ import RightPanel from "./RightPanel";
 import LeftPanel from "./LeftPanel";
 
 function App() {
+  const [value, setValue] = React.useState(1);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <div className='App' style={{ backgroundColor: "#ffff" }}>
       <Paper>
@@ -17,7 +22,7 @@ function App() {
           indicatorColor='secondary'
           textColor='black'
           centered
-          value={1}
+          value={value}
           style={{
             backgroundColor: "#84D0D1",
             color: "black",
@@ -31,19 +36,24 @@ function App() {
                 "https://github.com/GiwrgosTerezakis/BAT"
               )
             }
-            style={{ fontSize: 20, fontFamily: "Helvetica,  sans-serif" }}
+            
+            onMouseEnter={() => setValue(0)}
+            onMouseLeave={()=> setValue(1)}
+            
           />
 
           <Tab
           className = "tabb"
             label='Home'
-            style={{ fontSize: 20, fontFamily: "Helvetica,  sans-serif" }}
+            onMouseEnter={() => setValue(1)}
+            onMouseLeave={()=> setValue(1)}
           />
 
           <Tab
           className = "tabb"
             label='Details'
-            style={{ fontSize: 20, fontFamily: "Helvetica, sans-serif" }}
+            onMouseEnter={() => setValue(2)}
+            onMouseLeave={()=> setValue(1)}
           />
         </Tabs>
       </Paper>
