@@ -8,7 +8,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import IconButton from "@material-ui/core/IconButton";
 import InfoIcon from "@material-ui/icons/Info";
 import Typography from "@material-ui/core/Typography";
-
+import {Link} from 'react-router-dom';
 
 export default function CheckboxList() {
   const [Datastate, setDatastate] = useState([]);
@@ -72,16 +72,18 @@ export default function CheckboxList() {
             }}>
               <br/>
             <ListItemIcon>
-              <Checkbox
+              {/* <Checkbox
              
               checked = {d.select}
                 edge='start'
                 tabIndex={-1}
                 disableRipple
                 inputProps={{ "aria-labelledby": labelId }}
-              />
+              /> */}
             </ListItemIcon>
+            <Link to={`/Data/${d.id}`}>
             <ListItemText id={labelId} primary={<b> {d.Name} </b>} />
+             </Link>
             <ListItemSecondaryAction>
               <IconButton edge='end' onClick={GoUrl(d.id)}>
                 <InfoIcon />
