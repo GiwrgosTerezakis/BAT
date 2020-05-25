@@ -17,9 +17,32 @@
     background-position: center;
     font-size: 23px !important ;
     font-family: Jura, Cochin, Georgia, Times, 'Times New Roman', sans-serif !important ;
-    text-shadow: 1px 1px 16px purple;
+   
 }
 
 .tabb :hover {
  color: #EF495D;
+}
+
+.listT{
+    text-decoration: none ;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+    font-size: 17px ;
+    font-variant: small-caps;
+    color: black;
+
+}
+.listT :hover{
+    color: red;
+}
+
+.info :hover{
+    color: red;
+}
+
+.letters {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+    color: black;
+    font-size: 17px !important;
+    font-variant: small-caps;
 }

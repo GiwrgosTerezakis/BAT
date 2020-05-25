@@ -15,7 +15,7 @@ export default (props) => (
       <AppBar
         position='static'
         style={{ margin: 0, padding: 0, background: "#84D0D1" }}>
-        <Typography align='center' color='textSecondary' gutterBottom>
+        <Typography align='center'  className="letters">
           <b>Upload Your Own Data </b>
         </Typography>
       </AppBar>

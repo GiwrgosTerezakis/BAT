@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./styles.css";
 import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -15,7 +15,7 @@ export default (props) => (
       <AppBar
         position='static'
         style={{ margin: 0, padding: 0, background: "#84D0D1" }}>
-        <Typography align='center' color='textSecondary' gutterBottom>
+        <Typography align='center'  className="letters">
           <b> Choose a Sample Dataset</b>
         </Typography>
       </AppBar>
