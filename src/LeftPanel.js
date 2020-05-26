@@ -22,7 +22,6 @@ export default (props) => (
       <Checkbox/>
     </CardContent>
     <CardActions>
-      {/* <Bouton1 /> */}
     </CardActions>
   </Card>
 );

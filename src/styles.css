@@ -46,3 +46,10 @@
     font-size: 17px !important;
     font-variant: small-caps;
 }
+
+.BackButton {
+    background-color: black!important;
+    margin-left: 2px !important;
+    margin-top: 2px !important;
+    color: white !important;
+}
