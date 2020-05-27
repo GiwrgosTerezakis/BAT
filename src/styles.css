@@ -52,4 +52,16 @@
     margin-left: 2px !important;
     margin-top: 2px !important;
     color: white !important;
+    text-decoration: none !important;
+    position: fixed !important;
+}
+
+.BackButton :hover{
+    color: red;
+}
+
+.compasTypo{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+    color: black;
+    font-variant: small-caps !important;
 }
