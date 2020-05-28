@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import {useSelector} from 'react-redux';
 import {
   PieChart, Pie, Sector, Cell,
 } from 'recharts';
@@ -14,6 +15,8 @@ const data = [
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 const RADIAN = Math.PI / 180;
+
+
 const renderCustomizedLabel = ({
   cx, cy, midAngle, innerRadius, outerRadius, percent, index,
 }) => {
@@ -28,11 +31,14 @@ const renderCustomizedLabel = ({
   );
 };
 
-export default class CPIE extends PureComponent {
-  static jsfiddleUrl = 'https://jsfiddle.net/alidingling/c9pL8k61/';
 
-  render() {
+export default function CPIE() {
+  
+  const selection = useSelector(state => state.modelReducer);
+  
+  
     return (
+      
       <PieChart width={400} height={350}>
         <Pie
           data={data}
@@ -45,10 +51,12 @@ export default class CPIE extends PureComponent {
           dataKey="value"
         >
           {
+            
             data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
           }
         </Pie>
       </PieChart>
+      
     );
-  }
+  
 }

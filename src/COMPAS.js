@@ -15,6 +15,8 @@ import CScate from './CompasScatter';
 import Footer from "./Footer";
 import SelectModel from "./SelectModel";
 import SelectAudit from "./SelectAudit";
+import CPIE from "./CompasPie";
+
 import {
   ComposedChart,
   Line,
@@ -27,7 +29,7 @@ import {
   Legend,
   Scatter,
 } from "recharts";
-import CPIE from "./CompasPie";
+
 
 const ee = [
   {
@@ -58,8 +60,10 @@ const ee = [
 ];
 
 export default function COMPAS() {
+  
   return (
     <div>
+      
       <Link to={`/`} style={{ textDecoration: "none" }}>
         <Button
           variant='contained'
@@ -69,10 +73,12 @@ export default function COMPAS() {
           }>
           <b> Back </b>
         </Button>
+        
       </Link>
-
+      
 
       <Container maxWidth='lg'>
+      
         <Paper style={{boxShadow: "0 3px 3px 1px grey"}}>
           <Typography
           className="compasTypo"
@@ -81,7 +87,7 @@ export default function COMPAS() {
             style={{ marginTop: 0, paddingTop: 0 ,marginBottom: 0}}>
             Cοmpas Recidivism Risk Score Data and Analysis
           </Typography>
-
+          
           <Grid container spacing={3} alignItems="center" >
           <Grid xs={3}>
           <CPie />
