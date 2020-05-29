@@ -11,16 +11,16 @@ const useStyles = makeStyles((theme) => ({
     display: 'block',
     marginTop: theme.spacing(1),
     position: 'relative',
-    left: '45%',
-    top: '35%',
+    left: '50%',
+    top: '50%',
     transform: 'translate(-50%, -50%)'
 
   },
   formControl: {
     margin: theme.spacing(0),
     minWidth: 120,position: 'relative',
-    left: '45%',
-    top: '35%',
+    left: '50%',
+    top: '50%',
     transform: 'translate(-50%, -50%)'
   },
 }));

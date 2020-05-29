@@ -15,7 +15,7 @@ import CScate from './CompasScatter';
 import Footer from "./Footer";
 import SelectModel from "./SelectModel";
 import SelectAudit from "./SelectAudit";
-import CPIE from "./CompasPie";
+import BarChart from "./barChart";
 
 import {
   ComposedChart,
@@ -88,78 +88,43 @@ export default function COMPAS() {
             Cοmpas Recidivism Risk Score Data and Analysis
           </Typography>
           
-          <Grid container spacing={3} alignItems="center" >
-          <Grid xs={3}>
-          <CPie />
+          <Grid container spacing={1} alignItems="flex-start" >
+          <Grid xs={6}>
+          <CPie it={1} />
         </Grid>
-        <Grid item xs={3}>
-          <p>Blah Blah Blah</p>
-          <p>Blah Blah Blah</p>
-          <p>Blah Blah Blah</p>
+        
+        <Grid item xs={6}>
+          <CPie it={2}/>
         </Grid>
-        <Grid item xs={3}>
-          <CPie/>
-        </Grid>
-        <Grid item xs={3}>
-       < p>Blah Blah Blah</p>
-          <p>Blah Blah Blah</p>
-          <p>Blah Blah Blah</p>
-        </Grid>
+        
           </Grid>
           <hr/>
           <br/>
           <SelectModel />
-          <Grid container spacing={3} alignItems="center">
-          <Grid item xs={12} sm={6}>
+          <span style={{textAlign:"center"}}><h2>Sensitive Attribute: Race </h2></span>
+          <br/>
+
+          <Grid container spacing={3} alignItems="flex-start">
+            
+          <Grid item xs={12} sm={6}  alignItems="center">
           <CScate />
             
         </Grid>
-        <Grid item xs={12} sm={6}>
-        <CScate/>
+        <Grid item xs={12} sm={6} alignItems="center">
+        <BarChart/>
         </Grid>
           </Grid>
-          <hr/>
+          <span style={{textAlign:"center"}}><h2>Sensitive Attribute: Gender </h2></span>
           <br/>
-          <Grid container spacing={3}>
-          <Grid item xs={12} sm={6}>
-          <ComposedChart
-            width={500}
-            height={400}
-            data={ee}
-            margin={{
-              top: 20,
-              right: 20,
-              bottom: 20,
-              left: 20,
-            }}>
-            <CartesianGrid stroke='#f5f5f5' />
-            <XAxis dataKey='name' />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey='Accuracy' barSize={20} fill='#413ea0' />
-            <Bar dataKey='Bias' barSize={20} fill='red' />
-          </ComposedChart>
+
+          <Grid container spacing={3} alignItems="flex-start">
+            
+          <Grid item xs={12} sm={6}  alignItems="center">
+          <CScate />
+            
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <ComposedChart
-            width={500}
-            height={400}
-            data={ee}
-            margin={{
-              top: 20,
-              right: 20,
-              bottom: 20,
-              left: 20,
-            }}>
-            <CartesianGrid stroke='#f5f5f5' />
-            <XAxis dataKey='name' />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey='Accuracy' barSize={20} fill='#413ea0' />
-            <Bar dataKey='Bias' barSize={20} fill='red' />
-          </ComposedChart>
+        <Grid item xs={12} sm={6} alignItems="center">
+        <BarChart/>
         </Grid>
           </Grid>
           <hr/>

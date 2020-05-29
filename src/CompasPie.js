@@ -1,62 +1,69 @@
-import React, { PureComponent } from 'react';
-import {useSelector} from 'react-redux';
-import {
-  PieChart, Pie, Sector, Cell,
-} from 'recharts';
+import React, { Component } from "react";
+import { Pie } from "react-chartjs-2";
 
+export default class CPIE extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      labels: ["Ethnicity1 ", "Ethnicity2", "Ethnicity3", "Ethnicity4"],
+      labels2: ["Men", "Women"],
+      datasets: [
+        {
+          data: [4000, 2500, 2000, 1500],
+          backgroundColor: ["red", "green", "blue", "purple"],
+        },
+      ],
+      datasets2: [
+        {
+          data: [4000, 2500],
+          backgroundColor: ["blue", "red"],
+        },
+      ],
+    };
+  }
 
-const data = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
-];
+  render() {
+    switch (this.props.it) {
+      case 1:
+        return (
+          <div>
+            <br />
+            <br />
+            <br />
+            <span style={{textAlign : "center"}}> <h3> Race Distribution</h3> </span>
+            <Pie
+              data={{
+                labels: this.state.labels,
+                datasets: this.state.datasets,
+              }}
+              height='45'
+              width='100'
+              left='20%'
+            />
+            <br />
+          </div>
+        );
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-
-const RADIAN = Math.PI / 180;
-
-
-const renderCustomizedLabel = ({
-  cx, cy, midAngle, innerRadius, outerRadius, percent, index,
-}) => {
-   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-  const x = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-  return (
-    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-      {`${(percent * 100).toFixed(0)}%`}
-    </text>
-  );
-};
-
-
-export default function CPIE() {
-  
-  const selection = useSelector(state => state.modelReducer);
-  
-  
-    return (
-      
-      <PieChart width={400} height={350}>
-        <Pie
-          data={data}
-          cx={200}
-          cy={200}
-          labelLine={false}
-          label={renderCustomizedLabel}
-          outerRadius={80}
-          fill="#8884d8"
-          dataKey="value"
-        >
-          {
+      case 2:
+        return (
+          <div>
+            <br />
+            <br />
+            <br />
+            <span style={{textAlign : "center"}}> <h3> Gender Distribution</h3> </span>
             
-            data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
-          }
-        </Pie>
-      </PieChart>
-      
-    );
-  
+            <Pie
+              data={{
+                labels: this.state.labels2,
+                datasets: this.state.datasets2,
+              }}
+              height='45'
+              width='100'
+              left='20%'
+            />
+            <br />
+          </div>
+        );
+    }
+  }
 }
