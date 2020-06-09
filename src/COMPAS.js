@@ -85,7 +85,7 @@ export default function COMPAS() {
             variant='h3'
             align='center'
             style={{ marginTop: 0, paddingTop: 0 ,marginBottom: 0}}>
-            Cοmpas Recidivism Risk Score Data 
+            Cοmpas Recidivism Risk Score Data and Analysis
           </Typography>
           
           <Grid container spacing={1} alignItems="flex-start" >
