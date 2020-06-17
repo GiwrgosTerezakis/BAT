@@ -35,7 +35,7 @@ export default function BarChart(){
           case 2: return data;
           case 3: return data;
           case 4: return data;
-          case 5: return data;
+          
   
       }
   }
