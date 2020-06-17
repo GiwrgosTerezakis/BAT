@@ -10,79 +10,35 @@ import {
   Tooltip,
   Legend,
   Scatter,
+  ReferenceLine,
+  
 } from "recharts";
 import {useSelector} from 'react-redux';
+import { red } from "@material-ui/core/colors";
 
-const ee = [
-    {
-      name: "Bayes",
-      Accuracy: 0.8,
-      GroupFairness: 1.2,
-    },
-    {
-      name: "SVM",
-      Accuracy: 0.75,
-      GroupFairness: 2.1,
-    },
-    {
-      name: "LogisticR",
-      Accuracy: 0.72,
-      GroupFairness: 1.8,
-    },
-    {
-      name: "LinearR",
-      Accuracy: 0.82,
-      GroupFairness: 1.4,
-    },
-    {
-      name: "Random Forest",
-      Accuracy: 0.76,
-      GroupFairness: 1.6,
-    },
-  ];
-  const SVM = [{
-    name: "Support Vector Machine",
-    Accuracy: 0.75,
-    GroupFairness: 2.1,
-  }];
-  const Bayes = [{
-    name: "Naive Bayes",
-    Accuracy: 0.8,
-    GroupFairness: 1.2
-  }];
-  
-  const LogisticR = [{
-    name: "Logistic Regression",
-    Accuracy: 0.72,
-    GroupFairness: 1.8,
-  }];
-const LinearR = [{
-    name: "Linear Regression",
-    Accuracy: 0.82,
-    GroupFairness: 1.4,
-}];
-const RandomForest = [{
-    name: "Random Forest",
-    Accuracy: 0.76,
-    GroupFairness: 1.6,
-}];
 
-const handle = (selection) => {
-    switch(selection){
-        default: return ee;
-        case 1: return SVM;
-        case 2: return RandomForest;
-        case 3: return LinearR;
-        case 4: return LogisticR;
-        case 5: return Bayes;
 
-    }
-}
+
+
+
 
 
 export default function BarChart(){
     const selection = useSelector(state => state.modelReducer);
+    var data = [];
+    data = useSelector(state => state.axiosJson);
 
+    const handle = (selection) => {
+      switch(selection){
+          default: return data;
+          case 1: return data;
+          case 2: return data;
+          case 3: return data;
+          case 4: return data;
+          case 5: return data;
+  
+      }
+  }
 
     return (
         <ComposedChart
@@ -97,11 +53,17 @@ export default function BarChart(){
         }}>
         <CartesianGrid stroke='#f5f5f5' />
         <XAxis dataKey='name' />
-        <YAxis />
+        
+        <ReferenceLine y={1.2}  stroke="black" strokeDasharray="3 3" />
+        <ReferenceLine y={0.8}  stroke="black" strokeDasharray="3 3" />
+        
+        
+        <YAxis width={20} padding={{ top: 1, bottom: 1 }}  domain={[0, 2.5]} allowDataOverflow={true}/>
         <Tooltip />
         <Legend />
         <Bar dataKey='Accuracy' barSize={16} fill='#413ea0' />
-        <Bar dataKey='GroupFairness' barSize={16} fill='red' />
+        <Bar dataKey='Bias' barSize={16} fill='red' />
+        
       </ComposedChart>
     ); 
   
