@@ -39,7 +39,7 @@ import { useDispatch } from "react-redux";
 export default function COMPAS() {
   const dispatch = useDispatch();
   const [Operations, setOperations] = React.useState([{}]);
-  axios.get("https://bat-django.herokuapp.com/Compas/Ml").then((res) => {
+  await axios.get("https://bat-django.herokuapp.com/Compas/Ml").then((res) => {
    // console.log(res.data[0].model);
     setOperations({ Operations: res.data });
     
