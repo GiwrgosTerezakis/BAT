@@ -1,11 +1,7 @@
 import React, { useState, useEffect, Component, setState } from "react";
 import "./styles.css";
-import IconButton from "@material-ui/core/IconButton";
 import { Typography, Container } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import * as d3 from "d3";
-import data from "./COMPAS";
-import { readRemoteFile, CSVReader } from "react-papaparse";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
@@ -19,19 +15,6 @@ import axios from "axios";
 import {saveInfo} from './actions';
 import { useDispatch } from "react-redux";
 
-// import {
-//   ComposedChart,
-//   Line,
-//   Area,
-//   Bar,
-//   XAxis,
-//   YAxis,
-//   CartesianGrid,
-//   Tooltip,
-//   Legend,
-//   Scatter,
-// } from "recharts";
-
 
 
 
@@ -39,49 +22,59 @@ import { useDispatch } from "react-redux";
 export default function COMPAS() {
   const dispatch = useDispatch();
   const [Operations, setOperations] = React.useState([{}]);
-  axios.get("https://bat-django.herokuapp.com/Compas/Ml").then((res) => {
-   // console.log(res.data[0].model);
-    setOperations({ Operations: res.data });
-    
-    const ee = [
-      {
-        name: res.data[0].model,
-        Accuracy: res.data[0].acc,
-        Bias: res.data[0].DIlogisticRegRace,
-      },
-      {
-        name: res.data[1].model,
-        Accuracy: res.data[1].acc,
-        Bias: res.data[1].DIrandomForestRace,
-      },
-      {
-        name: res.data[2].model,
-        Accuracy: res.data[2].acc,
-        Bias: res.data[2].DIdesicionTreeRace,
-      },
-      {
-        name: res.data[3].model,
-        Accuracy: res.data[3].acc,
-        Bias: res.data[3].DIdesicionTreeRace,
-      },
-      {
-        name: res.data[4].model,
-        Accuracy: res.data[4].acc,
-        Bias: res.data[4].DIdesicionTreeRace,
-      },
-      {
-        name: res.data[5].model,
-        Accuracy: res.data[5].acc,
-        Bias: res.data[5].DIdesicionTreeRace,
-      },
-      {
-        name: res.data[6].model,
-        Accuracy: res.data[6].acc,
-        Bias: res.data[6].DIdesicionTreeRace,
-      },  
-    ];
-    dispatch(saveInfo(ee)) ;
-  });
+  // axios.get("https://bat-django.herokuapp.com/Compas/Ml").then((res) => {
+   //console.log("true");
+    //setOperations({ Operations: res.data });
+    useEffect(() => {
+
+      async function fetchData() {
+       
+        const res = await axios(
+          'https://bat-django.herokuapp.com/Compas/Ml',
+        );
+
+        const ee = [
+          {
+            name: res.data[0].model,
+            Accuracy: res.data[0].acc,
+            Bias: res.data[0].DIlogisticRegRace,
+          },
+          {
+            name: res.data[1].model,
+            Accuracy: res.data[1].acc,
+            Bias: res.data[1].DIrandomForestRace,
+          },
+          {
+            name: res.data[2].model,
+            Accuracy: res.data[2].acc,
+            Bias: res.data[2].DIdesicionTreeRace,
+          },
+          {
+            name: res.data[3].model,
+            Accuracy: res.data[3].acc,
+            Bias: res.data[3].DIdesicionTreeRace,
+          },
+          {
+            name: res.data[4].model,
+            Accuracy: res.data[4].acc,
+            Bias: res.data[4].DIdesicionTreeRace,
+          },
+          {
+            name: res.data[5].model,
+            Accuracy: res.data[5].acc,
+            Bias: res.data[5].DIdesicionTreeRace,
+          },
+          {
+            name: res.data[6].model,
+            Accuracy: res.data[6].acc,
+            Bias: res.data[6].DIdesicionTreeRace,
+          },  
+        ];
+        dispatch(saveInfo(ee)) ;
+        
+      }
+      fetchData();
+    }, []); 
 
   
 
@@ -100,7 +93,7 @@ export default function COMPAS() {
         <Paper style={{ boxShadow: "0 3px 3px 1px grey" }}>
           <Typography
             className='compasTypo'
-            // variant='h3'
+             variant='h3'
             align='center'
             style={{ marginTop: 0, paddingTop: 0, marginBottom: 0 }}>
             Cοmpas Recidivism Risk Score Data and Analysis

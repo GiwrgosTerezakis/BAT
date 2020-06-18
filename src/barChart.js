@@ -1,4 +1,4 @@
-import React from  "react";
+import React from "react";
 import {
   ComposedChart,
   Line,
@@ -11,66 +11,69 @@ import {
   Legend,
   Scatter,
   ReferenceLine,
-  
 } from "recharts";
-import {useSelector} from 'react-redux';
-import { red } from "@material-ui/core/colors";
+import { useSelector } from "react-redux";
 
-
-
-
-
-
-
-
-export default function BarChart(){
-    const selection = useSelector(state => state.modelReducer);
-    var data = [];
-    data = useSelector(state => state.axiosJson);
-
-    const handle = (selection) => {
-      switch(selection){
-          default: return data;
-          case 1: return data;
-          case 2: return data;
-          case 3: return data;
-          case 4: return data;
-          case 5: return data;
-  
-      }
+var selection;
+var data;
+var info;
+export default function BarChart() {
+  data = useSelector((state) => state.axiosJson);
+  if (data != 0) {
+    info = data;
   }
 
-    return (
-        <ComposedChart
-        width={500}
-        height={400}
-        data={handle(selection)}
-        margin={{
-          top: 20,
-          right: 20,
-          bottom: 20,
-          left: 20,
-        }}>
-        <CartesianGrid stroke='#f5f5f5' />
-        <XAxis dataKey='name' />
-        
-        <ReferenceLine y={1.2}  stroke="black" strokeDasharray="3 3" />
-        <ReferenceLine y={0.8}  stroke="black" strokeDasharray="3 3" />
-        
-        
-        <YAxis width={20} padding={{ top: 1, bottom: 1 }}  domain={[0, 2.5]} allowDataOverflow={true}/>
-        <Tooltip />
-        <Legend />
-        <Bar dataKey='Accuracy' barSize={16} fill='#413ea0' />
-        <Bar dataKey='Bias' barSize={16} fill='red' />
-        
-      </ComposedChart>
-    ); 
-  
+  selection = useSelector((state) => state.modelReducer);
 
+  //  console.log(data[1]);
+  const handle = (selection) => {
+    // console.log(selection);
+    // console.log(info[selection]);
+    // console.log(info);
+    switch (selection) {
+      default:
+        return info;
+      case 1:
+        return [info[0]];
+      case 2:
+        return [info[1]];
+      case 3:
+        return [info[2]];
+      case 4:
+        return [info[3]];
+      case 5:
+        return [info[4]];
+    }
+  };
 
+  return (
+    <ComposedChart
+      width={500}
+      height={400}
+      data={handle(selection)}
+      margin={{
+        left: 20,
+      }}
+      padding={{
+        right: 0,
+        left : 0 
+      }}>
+      <CartesianGrid stroke='#f5f5f5' />
+      <XAxis dataKey='name' />
 
+      <ReferenceLine y={1.2} stroke='black' strokeDasharray='3 3' />
+      <ReferenceLine y={0.8} stroke='black' strokeDasharray='3 3' />
 
+      <YAxis
+        width={20}
+        padding={{ top: 1, bottom: 1 }}
+        domain={[0, 2.5]}
+        allowDataOverflow={true}
+      />
+      <Tooltip />
+      <Legend />
+      <Bar dataKey='Accuracy' barSize={16} fill='#413ea0' />
+      <Bar dataKey='Bias' barSize={16} fill='red' />
+    </ComposedChart>
+  );
 }
-
-

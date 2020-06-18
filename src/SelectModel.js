@@ -42,8 +42,9 @@ export default function SelectModel() {
 
  
   const handleChange = (event) => {
+    event.preventDefault();
     setmodelPicked(event.target.value);
-    console.log(event.target.value);
+    //console.log(event.target.value);
     dispatch(changeSelect(event.target.value)) ;
   };
 
