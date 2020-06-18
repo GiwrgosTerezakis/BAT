@@ -39,7 +39,7 @@ import { useDispatch } from "react-redux";
 export default function COMPAS() {
   const dispatch = useDispatch();
   const [Operations, setOperations] = React.useState([{}]);
-  axios.get("/Compas/Ml").then((res) => {
+  axios.get("https://bat-django.herokuapp.com/Compas/Ml").then((res) => {
    // console.log(res.data[0].model);
     setOperations({ Operations: res.data });
     
@@ -78,7 +78,7 @@ export default function COMPAS() {
         name: res.data[6].model,
         Accuracy: res.data[6].acc,
         Bias: res.data[6].DIdesicionTreeRace,
-      },
+      },  
     ];
     dispatch(saveInfo(ee)) ;
   });
