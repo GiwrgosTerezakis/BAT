@@ -122,6 +122,7 @@ export default function COMPAS() {
               </Grid>
             </Grid>
             <span style={{ textAlign: "center" }}>
+              <br/>
               <h2>Sensitive Attribute: Gender </h2>
             </span>
             <br />
