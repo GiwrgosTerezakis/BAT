@@ -17,6 +17,7 @@
     "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.13.1",
     "react-image-file-resizer": "^0.2.3",
+    "react-loadingg": "^1.7.2",
     "react-papaparse": "^3.3.0",
     "react-redux": "^7.2.0",
     "react-router": "^5.2.0",
