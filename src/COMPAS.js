@@ -37,37 +37,44 @@ export default function COMPAS() {
           {
             name: res.data[0].model,
             Accuracy: res.data[0].acc,
-            Bias: res.data[0].DIlogisticRegRace,
+            Race_Bias: res.data[0].DIlogisticRegRace,
+            Gender_Bias: res.data[0].DIlogisticRegGender,
           },
           {
             name: res.data[1].model,
             Accuracy: res.data[1].acc,
-            Bias: res.data[1].DIrandomForestRace,
+            Race_Bias: res.data[1].DIrandomForestRace,
+            Gender_Bias: res.data[1].DIrandomForestGender,
           },
           {
             name: res.data[2].model,
             Accuracy: res.data[2].acc,
-            Bias: res.data[2].DIdesicionTreeRace,
+            Race_Bias: res.data[2].DIdesicionTreeRace,
+            Gender_Bias: res.data[2].DIrandomTreeGender,
           },
           {
             name: res.data[3].model,
             Accuracy: res.data[3].acc,
-            Bias: res.data[3].DIdesicionTreeRace,
+            Race_Bias: res.data[3].DIkNNRace,
+            Gender_Bias: res.data[3].DIkNNGender,
           },
           {
             name: res.data[4].model,
             Accuracy: res.data[4].acc,
-            Bias: res.data[4].DIdesicionTreeRace,
+            Race_Bias: res.data[4].DInaiveBayesRace,
+            Gender_Bias: res.data[4].DInaiveBayesGender,
           },
           {
             name: res.data[5].model,
             Accuracy: res.data[5].acc,
-            Bias: res.data[5].DIdesicionTreeRace,
+            Race_Bias: res.data[5].DIadaBoostRace,
+            Gender_Bias: res.data[5].DIadaBoostGender,
           },
           {
             name: res.data[6].model,
             Accuracy: res.data[6].acc,
-            Bias: res.data[6].DIdesicionTreeRace,
+            Race_Bias: res.data[6].DISVMRACE,
+            Gender_Bias: res.data[6].DISVMGender,
           },  
         ];
         dispatch(saveInfo(ee)) ;

@@ -73,7 +73,8 @@ export default function BarChart() {
       <Tooltip />
       <Legend />
       <Bar dataKey='Accuracy' barSize={16} fill='#413ea0' />
-      <Bar dataKey='Bias' barSize={16} fill='red' />
+      <Bar dataKey='Race_Bias' barSize={16} fill='red' />
+      <Bar dataKey='Gender_Bias' barSize={16} fill='green' />
     </ComposedChart>
   );
 }
