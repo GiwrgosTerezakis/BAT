@@ -3,6 +3,7 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine,
 } from 'recharts';
 
+//test gia git
 const data = [
   {
     name: 'SVM', uv: 0.8, pv: 1.2, amt: 2400,
